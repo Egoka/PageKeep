@@ -2,9 +2,10 @@ const{Router} = require('express')
 const Todo = require('../models/modelBD')
 const router = Router()
 //Получение списка задач
-router.get('/',(req,res)=>{
+router.get('/',async (req,res)=>{
     try {
-
+        const todos = await Todo.findAll()
+        res.status(200).json(todos)
     }catch (err) {
         console.log(err)
         res.status(500).json({
