@@ -14,10 +14,6 @@ const model =connectDB.define('Todo',{
     title:{
         type: Sequelize.STRING,
         allowNull:false
-    },
-    date:{
-        type:Sequelize.DATE,
-        allowNull:false
     }
 })
 module.exports = model
