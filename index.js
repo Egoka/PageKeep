@@ -8,7 +8,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.json())
 app.use('/api/todo',todoRoutes)
 app.use((req,res,next)=>{
-    res.sendFile('../index.html')
+    res.sendFile(path.join(__dirname, 'public','index.html'))
 })
 async function start(){
     try{
