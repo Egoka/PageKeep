@@ -36,6 +36,13 @@ new Vue({
                 .catch(err=>console.log(err))
         },
         removeTodo(id) {
+            fetch('/api/todo/'+id,{
+                method:'delete'
+            })
+                .then(()=>{
+                    this.todos = this.todos.filter(t=>t.id !== id)
+                })
+                .catch(err=>console.log(err))
             this.todos = this.todos.filter(t => t.id !== id)
         },
         completeTodo(id,done){
