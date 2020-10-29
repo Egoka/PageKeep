@@ -11,5 +11,6 @@ module.exports = buildSchema(`
     }
     type Query{
         test:TestType!
+        random(min:Int!,max:Int!, count:Int!):[Int!]!
     }
 `)

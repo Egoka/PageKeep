@@ -8,5 +8,11 @@ module.exports = {
             count:Math.trunc(Math.random()*10),
             users
         }
+    },
+    random({min, max, count}) {
+        const arr = []
+        for (let i=0;i<count;i++)
+            arr.push(Math.trunc(Math.random()*(max-min)+min))
+        return arr
     }
 }
