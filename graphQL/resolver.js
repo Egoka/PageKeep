@@ -40,12 +40,22 @@ module.exports = {
     },
     async completeTodo({id,done}){
         try{
-            console.log(id, done)
             const todo = await Todo.findByPk(id)
             todo.done = done
             await todo.save()
             return todo
         }catch(err) {
+            throw new Error('Id is required')
+        }
+    },
+    async deleteTodo({id}){
+        try{
+            const todos = await Todo.findAll({
+                where: {id}
+            })
+            await todos[0].destroy()
+            return true
+        }catch(err){
             throw new Error('Id is required')
         }
     }
