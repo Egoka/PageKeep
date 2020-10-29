@@ -12,5 +12,12 @@ module.exports = buildSchema(`
     type Query{
         test:TestType!
         random(min:Int!,max:Int!, count:Int!):[Int!]!
+    },
+    input UserInput{
+        name: String!
+        email: String!
+    }
+    type Mutation{
+        addTestUser(user: UserInput!): User!
     }
 `)

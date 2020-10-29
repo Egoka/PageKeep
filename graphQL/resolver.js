@@ -14,5 +14,10 @@ module.exports = {
         for (let i=0;i<count;i++)
             arr.push(Math.trunc(Math.random()*(max-min)+min))
         return arr
+    },
+    addTestUser({ user:{name, email}}){
+        user = {name,email,age: Math.ceil(Math.random()*30)}
+        users.push(user)
+        return user
     }
 }
