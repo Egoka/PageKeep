@@ -1,3 +1,4 @@
+const Todo = require('../models/modelBD')
 const users =[
     {name:'Egor', age: 30, email: 'Egor@gmail.com'},
     {name:'Ivan', age: 36, email: 'Ivan@gmail.com'}
@@ -19,5 +20,12 @@ module.exports = {
         user = {name,email,age: Math.ceil(Math.random()*30)}
         users.push(user)
         return user
+    },
+    async getTodos(){
+        try{
+            return await Todo.findAll()
+        }catch(err){
+            throw new Error('Fetch todos is not available!!!')
+        }
     }
 }
