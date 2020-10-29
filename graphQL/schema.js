@@ -20,12 +20,16 @@ module.exports = buildSchema(`
         test:TestType!
         random(min:Int!,max:Int!, count:Int!):[Int!]!
         getTodos: [Todo!]!
-    },
+    }
     input UserInput{
         name: String!
         email: String!
-    },
+    }
+    input TodoInput{
+        title: String!
+    }
     type Mutation{
         addTestUser(user: UserInput!): User!
+        createTodo(todo: TodoInput!): Todo!
     }
 `)
